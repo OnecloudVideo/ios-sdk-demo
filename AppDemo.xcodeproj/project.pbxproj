@@ -7,12 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E39A6B31B57BB62005567B3 /* VideoUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E39A6B21B57BB62005567B3 /* VideoUpdateViewController.swift */; };
+		4E4A58D11B4D0861004E21F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58D01B4D0861004E21F8 /* LoginViewController.swift */; };
+		4E4A58EE1B4D0D61004E21F8 /* VideoSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58ED1B4D0D61004E21F8 /* VideoSDK.swift */; };
+		4E4A58F41B4D0D6F004E21F8 /* SDKMultipartTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58EF1B4D0D6F004E21F8 /* SDKMultipartTest.swift */; };
+		4E4A58F51B4D0D6F004E21F8 /* SDKCatalogTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58F01B4D0D6F004E21F8 /* SDKCatalogTest.swift */; };
+		4E4A58F61B4D0D6F004E21F8 /* SDKTestInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58F11B4D0D6F004E21F8 /* SDKTestInit.swift */; };
+		4E4A58F71B4D0D6F004E21F8 /* SDKUsageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58F21B4D0D6F004E21F8 /* SDKUsageTest.swift */; };
+		4E4A58F81B4D0D6F004E21F8 /* SDKVideoTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4A58F31B4D0D6F004E21F8 /* SDKVideoTest.swift */; };
+		4E4A590D1B4D21E1004E21F8 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4A590B1B4D19C5004E21F8 /* CryptoSwift.framework */; };
+		4E4A590E1B4D21E1004E21F8 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4A590B1B4D19C5004E21F8 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4E4A590F1B4D21E1004E21F8 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4A58EB1B4D0D51004E21F8 /* SwiftHTTP.framework */; };
+		4E4A59101B4D21E1004E21F8 /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4A58EB1B4D0D51004E21F8 /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4EAB21121B4E1BD10009EE4B /* CatalogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB21111B4E1BD10009EE4B /* CatalogTableViewCell.swift */; };
+		4EAB21161B4E20BB0009EE4B /* CatalogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB21151B4E20BB0009EE4B /* CatalogTableViewController.swift */; };
+		4EAB21181B4E22D80009EE4B /* AppContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB21171B4E22D80009EE4B /* AppContext.swift */; };
+		4EAB211A1B4E581F0009EE4B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EAB21191B4E581F0009EE4B /* Images.xcassets */; };
+		4EAB211E1B4F70010009EE4B /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB211D1B4F70010009EE4B /* VideoTableViewController.swift */; };
+		4EAB21201B4F7CEA0009EE4B /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB211F1B4F7CEA0009EE4B /* VideoTableViewCell.swift */; };
+		4EAB21221B4FAEA70009EE4B /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB21211B4FAEA70009EE4B /* AppUtil.swift */; };
+		4EAB21281B4FB6770009EE4B /* PreviewAVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAB21271B4FB6770009EE4B /* PreviewAVPlayerViewController.swift */; };
 		4ECF90FC1B4BA87F00D7DDAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF90FB1B4BA87F00D7DDAB /* AppDelegate.swift */; };
 		4ECF90FE1B4BA87F00D7DDAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF90FD1B4BA87F00D7DDAB /* ViewController.swift */; };
 		4ECF91011B4BA87F00D7DDAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF90FF1B4BA87F00D7DDAB /* Main.storyboard */; };
-		4ECF91031B4BA87F00D7DDAB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF91021B4BA87F00D7DDAB /* Images.xcassets */; };
 		4ECF91061B4BA87F00D7DDAB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ECF91041B4BA87F00D7DDAB /* LaunchScreen.xib */; };
 		4ECF91121B4BA87F00D7DDAB /* AppDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ECF91111B4BA87F00D7DDAB /* AppDemoTests.swift */; };
+		4EDF724A1B6764A8008E854F /* MainCanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF72491B6764A8008E854F /* MainCanvasViewController.swift */; };
+		4EDF724E1B6871C1008E854F /* UsagePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF724D1B6871C1008E854F /* UsagePlayViewController.swift */; };
+		4EDF72501B68767D008E854F /* TimeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF724F1B68767D008E854F /* TimeSelectionViewController.swift */; };
+		4EDF72521B68C245008E854F /* UsagePlayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF72511B68C245008E854F /* UsagePlayViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,17 +48,53 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4E4A59111B4D21E1004E21F8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E4A59101B4D21E1004E21F8 /* SwiftHTTP.framework in Embed Frameworks */,
+				4E4A590E1B4D21E1004E21F8 /* CryptoSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4E39A6B21B57BB62005567B3 /* VideoUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoUpdateViewController.swift; sourceTree = "<group>"; };
+		4E4A58D01B4D0861004E21F8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4E4A58EB1B4D0D51004E21F8 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftHTTP.framework; sourceTree = "<group>"; };
+		4E4A58ED1B4D0D61004E21F8 /* VideoSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSDK.swift; sourceTree = "<group>"; };
+		4E4A58EF1B4D0D6F004E21F8 /* SDKMultipartTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKMultipartTest.swift; sourceTree = "<group>"; };
+		4E4A58F01B4D0D6F004E21F8 /* SDKCatalogTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKCatalogTest.swift; sourceTree = "<group>"; };
+		4E4A58F11B4D0D6F004E21F8 /* SDKTestInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKTestInit.swift; sourceTree = "<group>"; };
+		4E4A58F21B4D0D6F004E21F8 /* SDKUsageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKUsageTest.swift; sourceTree = "<group>"; };
+		4E4A58F31B4D0D6F004E21F8 /* SDKVideoTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDKVideoTest.swift; sourceTree = "<group>"; };
+		4E4A590B1B4D19C5004E21F8 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = "<group>"; };
+		4EAB21111B4E1BD10009EE4B /* CatalogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogTableViewCell.swift; sourceTree = "<group>"; };
+		4EAB21151B4E20BB0009EE4B /* CatalogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatalogTableViewController.swift; sourceTree = "<group>"; };
+		4EAB21171B4E22D80009EE4B /* AppContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppContext.swift; sourceTree = "<group>"; };
+		4EAB21191B4E581F0009EE4B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4EAB211D1B4F70010009EE4B /* VideoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
+		4EAB211F1B4F7CEA0009EE4B /* VideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		4EAB21211B4FAEA70009EE4B /* AppUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
+		4EAB21271B4FB6770009EE4B /* PreviewAVPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewAVPlayerViewController.swift; sourceTree = "<group>"; };
 		4ECF90F61B4BA87F00D7DDAB /* AppDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECF90FA1B4BA87F00D7DDAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECF90FB1B4BA87F00D7DDAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4ECF90FD1B4BA87F00D7DDAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4ECF91001B4BA87F00D7DDAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4ECF91021B4BA87F00D7DDAB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4ECF91051B4BA87F00D7DDAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4ECF910B1B4BA87F00D7DDAB /* AppDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ECF91101B4BA87F00D7DDAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4ECF91111B4BA87F00D7DDAB /* AppDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDemoTests.swift; sourceTree = "<group>"; };
+		4EDF72491B6764A8008E854F /* MainCanvasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCanvasViewController.swift; sourceTree = "<group>"; };
+		4EDF724D1B6871C1008E854F /* UsagePlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsagePlayViewController.swift; sourceTree = "<group>"; };
+		4EDF724F1B68767D008E854F /* TimeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSelectionViewController.swift; sourceTree = "<group>"; };
+		4EDF72511B68C245008E854F /* UsagePlayViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsagePlayViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4A590F1B4D21E1004E21F8 /* SwiftHTTP.framework in Frameworks */,
+				4E4A590D1B4D21E1004E21F8 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +120,8 @@
 		4ECF90ED1B4BA87E00D7DDAB = {
 			isa = PBXGroup;
 			children = (
+				4E4A590B1B4D19C5004E21F8 /* CryptoSwift.framework */,
+				4E4A58EB1B4D0D51004E21F8 /* SwiftHTTP.framework */,
 				4ECF90F81B4BA87F00D7DDAB /* AppDemo */,
 				4ECF910E1B4BA87F00D7DDAB /* AppDemoTests */,
 				4ECF90F71B4BA87F00D7DDAB /* Products */,
@@ -77,12 +140,26 @@
 		4ECF90F81B4BA87F00D7DDAB /* AppDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4EAB21191B4E581F0009EE4B /* Images.xcassets */,
+				4E4A58ED1B4D0D61004E21F8 /* VideoSDK.swift */,
 				4ECF90FB1B4BA87F00D7DDAB /* AppDelegate.swift */,
 				4ECF90FD1B4BA87F00D7DDAB /* ViewController.swift */,
 				4ECF90FF1B4BA87F00D7DDAB /* Main.storyboard */,
-				4ECF91021B4BA87F00D7DDAB /* Images.xcassets */,
 				4ECF91041B4BA87F00D7DDAB /* LaunchScreen.xib */,
 				4ECF90F91B4BA87F00D7DDAB /* Supporting Files */,
+				4E4A58D01B4D0861004E21F8 /* LoginViewController.swift */,
+				4EAB21111B4E1BD10009EE4B /* CatalogTableViewCell.swift */,
+				4EAB21151B4E20BB0009EE4B /* CatalogTableViewController.swift */,
+				4EAB21171B4E22D80009EE4B /* AppContext.swift */,
+				4EAB21271B4FB6770009EE4B /* PreviewAVPlayerViewController.swift */,
+				4EDF724F1B68767D008E854F /* TimeSelectionViewController.swift */,
+				4E39A6B21B57BB62005567B3 /* VideoUpdateViewController.swift */,
+				4EAB21211B4FAEA70009EE4B /* AppUtil.swift */,
+				4EAB211D1B4F70010009EE4B /* VideoTableViewController.swift */,
+				4EDF724D1B6871C1008E854F /* UsagePlayViewController.swift */,
+				4EDF72511B68C245008E854F /* UsagePlayViewCell.swift */,
+				4EAB211F1B4F7CEA0009EE4B /* VideoTableViewCell.swift */,
+				4EDF72491B6764A8008E854F /* MainCanvasViewController.swift */,
 			);
 			path = AppDemo;
 			sourceTree = "<group>";
@@ -98,6 +175,11 @@
 		4ECF910E1B4BA87F00D7DDAB /* AppDemoTests */ = {
 			isa = PBXGroup;
 			children = (
+				4E4A58EF1B4D0D6F004E21F8 /* SDKMultipartTest.swift */,
+				4E4A58F01B4D0D6F004E21F8 /* SDKCatalogTest.swift */,
+				4E4A58F11B4D0D6F004E21F8 /* SDKTestInit.swift */,
+				4E4A58F21B4D0D6F004E21F8 /* SDKUsageTest.swift */,
+				4E4A58F31B4D0D6F004E21F8 /* SDKVideoTest.swift */,
 				4ECF91111B4BA87F00D7DDAB /* AppDemoTests.swift */,
 				4ECF910F1B4BA87F00D7DDAB /* Supporting Files */,
 			);
@@ -122,6 +204,7 @@
 				4ECF90F21B4BA87E00D7DDAB /* Sources */,
 				4ECF90F31B4BA87E00D7DDAB /* Frameworks */,
 				4ECF90F41B4BA87E00D7DDAB /* Resources */,
+				4E4A59111B4D21E1004E21F8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,9 +275,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EAB211A1B4E581F0009EE4B /* Images.xcassets in Resources */,
 				4ECF91011B4BA87F00D7DDAB /* Main.storyboard in Resources */,
 				4ECF91061B4BA87F00D7DDAB /* LaunchScreen.xib in Resources */,
-				4ECF91031B4BA87F00D7DDAB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,8 +295,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EAB21161B4E20BB0009EE4B /* CatalogTableViewController.swift in Sources */,
+				4E4A58D11B4D0861004E21F8 /* LoginViewController.swift in Sources */,
 				4ECF90FE1B4BA87F00D7DDAB /* ViewController.swift in Sources */,
+				4EAB21221B4FAEA70009EE4B /* AppUtil.swift in Sources */,
+				4EAB21181B4E22D80009EE4B /* AppContext.swift in Sources */,
+				4E39A6B31B57BB62005567B3 /* VideoUpdateViewController.swift in Sources */,
+				4EDF724A1B6764A8008E854F /* MainCanvasViewController.swift in Sources */,
+				4E4A58EE1B4D0D61004E21F8 /* VideoSDK.swift in Sources */,
+				4EDF72521B68C245008E854F /* UsagePlayViewCell.swift in Sources */,
 				4ECF90FC1B4BA87F00D7DDAB /* AppDelegate.swift in Sources */,
+				4EAB21121B4E1BD10009EE4B /* CatalogTableViewCell.swift in Sources */,
+				4EAB211E1B4F70010009EE4B /* VideoTableViewController.swift in Sources */,
+				4EAB21201B4F7CEA0009EE4B /* VideoTableViewCell.swift in Sources */,
+				4EAB21281B4FB6770009EE4B /* PreviewAVPlayerViewController.swift in Sources */,
+				4EDF72501B68767D008E854F /* TimeSelectionViewController.swift in Sources */,
+				4EDF724E1B6871C1008E854F /* UsagePlayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +319,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ECF91121B4BA87F00D7DDAB /* AppDemoTests.swift in Sources */,
+				4E4A58F51B4D0D6F004E21F8 /* SDKCatalogTest.swift in Sources */,
+				4E4A58F61B4D0D6F004E21F8 /* SDKTestInit.swift in Sources */,
+				4E4A58F41B4D0D6F004E21F8 /* SDKMultipartTest.swift in Sources */,
+				4E4A58F81B4D0D6F004E21F8 /* SDKVideoTest.swift in Sources */,
+				4E4A58F71B4D0D6F004E21F8 /* SDKUsageTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +444,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +458,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AppDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +521,7 @@
 				4ECF91171B4BA87F00D7DDAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4ECF91181B4BA87F00D7DDAB /* Build configuration list for PBXNativeTarget "AppDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +530,7 @@
 				4ECF911A1B4BA87F00D7DDAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
