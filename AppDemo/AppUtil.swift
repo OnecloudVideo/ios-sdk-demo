@@ -20,16 +20,9 @@ class AppUtil {
         
         alert.title = title
         alert.message = msg
-        
-        
         alert.addButtonWithTitle("确定")
         
         alert.show()
-    }
-    
-    static func onTimeout(time : Int64, closure : ()->()) {
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, time), dispatch_get_main_queue(), closure)
     }
     
     static func runOnMainThread(closure : () -> ()) {
@@ -48,5 +41,34 @@ class AppUtil {
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         return dateFormatter
+    }
+    
+    private static func sizeSmallerThan(size : Int, bytes : Int) -> Bool {
+        return 0 == size / bytes
+    }
+    
+    static func stringFromSize(size : UInt) -> String {
+        
+        let sizeInt = Int(size)
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        
+        if sizeSmallerThan(sizeInt, bytes: 1024) {
+            return "\(size % 1024)B"
+        }
+        
+        if sizeSmallerThan(sizeInt, bytes: 1024 * 1024) {
+            return "\(formatter.stringFromNumber(Double(size) / 1024.0)!)KB"
+        }
+        
+        if sizeSmallerThan(sizeInt, bytes: 1024 * 1024 * 1024) {
+            return "\(formatter.stringFromNumber(Double(size) / 1024.0 / 1024.0)!)MB"
+        }
+        
+        if sizeSmallerThan(sizeInt, bytes: 1024 * 1024 * 1024 * 1024) {
+            return "\(formatter.stringFromNumber(Double(size) / 1024.0 / 1024.0 / 1024)!)GB"
+        }
+        
+        return "\(formatter.stringFromNumber(Double(size) / 1024.0 / 1024.0 / 1024 / 1024)!)TB"
     }
 }

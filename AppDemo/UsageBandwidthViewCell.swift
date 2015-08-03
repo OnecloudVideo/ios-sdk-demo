@@ -8,17 +8,13 @@
 
 import UIKit
 
-class UsageBandwidthViewCell: UITableViewCell {
+class UsageBandwidthViewCell: UsageBaseViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var bandwidthLbl: UILabel!
+    
+    override func updateUsage(usage: Usage<UInt>) {
+        timeLbl.text = AppUtil.stringFromDate(usage.startAt)
+        bandwidthLbl.text = "\(AppUtil.stringFromSize(usage.usage))"
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

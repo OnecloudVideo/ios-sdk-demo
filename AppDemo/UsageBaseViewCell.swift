@@ -10,15 +10,15 @@ import UIKit
 
 class UsageBaseViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var usage : Usage<UInt>? {
+        didSet {
+            if let u = usage {
+                updateUsage(u)
+            }
+        }
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func updateUsage(usage : Usage<UInt>) {
+        preconditionFailure("This method must be override")
     }
-
 }

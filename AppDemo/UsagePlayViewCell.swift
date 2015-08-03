@@ -8,30 +8,13 @@
 
 import UIKit
 
-class UsagePlayViewCell: UITableViewCell {
+class UsagePlayViewCell: UsageBaseViewCell {
 
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var playTimesLbl: UILabel!
     
-    var usage : Usage<UInt>? {
-        didSet {
-            if let u = usage {
-                timeLbl.text = AppUtil.stringFromDate(u.startAt)
-                playTimesLbl.text = "\(u.usage)"
-            }
-        }
+    override func updateUsage(usage: Usage<UInt>) {
+        timeLbl.text = AppUtil.stringFromDate(usage.startAt)
+        playTimesLbl.text = "\(usage.usage)"
     }
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

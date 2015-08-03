@@ -8,17 +8,13 @@
 
 import UIKit
 
-class UsageVideoTotalViewCell: UITableViewCell {
+class UsageVideoTotalViewCell: UsageBaseViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var totalLbl: UILabel!
+
+    override func updateUsage(usage: Usage<UInt>) {
+        timeLbl.text = AppUtil.stringFromDate(usage.startAt)
+        totalLbl.text = "\(usage.usage)"
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

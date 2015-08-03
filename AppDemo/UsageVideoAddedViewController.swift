@@ -8,17 +8,44 @@
 
 import UIKit
 
-class UsageVideoAddedViewController: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+class UsageVideoAddedViewController: UsageBaseViewController {
+    
+    @IBOutlet weak var startTimeBtn: UIButton!
+    @IBOutlet weak var endTimeBtn: UIButton!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func getTableViewHeaderCellIdentifier() -> String {
+        return "usageVideoAddedHeaderCellIdentifier"
     }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override func getTableViewCellIdentifier() -> String {
+        return "usageVideoAddedCellIdentifier"
     }
-
+    
+    override func getStartTimeBtn() -> UIButton {
+        return startTimeBtn
+    }
+    
+    override func getEndTimeBtn() -> UIButton {
+        return endTimeBtn
+    }
+    
+    override func getTableView() -> UITableView {
+        return tableView
+    }
+    
+    override func updateTableView(startTime: NSDate, endTime: NSDate) {
+        AppContext.sdk?.getUsageService().videoAdded({ (usages) -> Void in
+            self.usages = usages
+            }, onFail: AppUtil.onFail, field: .Day, startAt: startTime, endAt: endTime)
+    }
+    
+    @IBAction func startTimeBtnClick(sender: UIButton) {
+        updateStartTime()
+    }
+    
+    @IBAction func onEndTimeBtnClick(sender: UIButton) {
+        updateEndTime()
+    }
 }

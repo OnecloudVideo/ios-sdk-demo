@@ -58,11 +58,11 @@ class VideoTableViewCell: UITableViewCell, PropertyChangeDelegate {
     @IBAction func onResume(sender: UIButton) {
         resumeBtn.hidden = true
         
-        AppUtil.onTimeout(1, closure: { () -> () in
+        AppUtil.runOnMainThread { () -> () in
             AppContext.sdk?.getMultipartService().upload({ (video) -> Void in
-                    
+                
                 }, onFail: AppUtil.onFail, multipartVideo: self.video as! MultipartVideo)
-        })
+        }
     }
     
     func onChange(property : String, newValue : Any?, oldValue : Any?) {

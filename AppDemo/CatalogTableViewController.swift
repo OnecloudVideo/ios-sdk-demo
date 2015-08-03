@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CatalogTableViewController: UITableViewController {
 
     var catalogService : CatalogService?
@@ -39,11 +40,10 @@ class CatalogTableViewController: UITableViewController {
                     if doneQuery == catalogs.count {
                         
                         //refresh ui
-                        AppUtil.onTimeout(1, closure: {
+                        
+                        AppUtil.runOnMainThread({ () -> () in
                             self.catalogs = catalogs
-                            
                             self.tableView.reloadData()
-                            
                         })
                     }
                 }

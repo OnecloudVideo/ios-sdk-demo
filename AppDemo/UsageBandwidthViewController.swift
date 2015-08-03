@@ -2,34 +2,49 @@
 //  UsageBandwidthViewController.swift
 //  AppDemo
 //
-//  Created by kinghai on 7/30/15.
+//  Created by kinghai on 7/29/15.
 //  Copyright (c) 2015 onecloud.inc. All rights reserved.
 //
 
 import UIKit
 
-class UsageBandwidthViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class UsageBandwidthViewController: UsageBaseViewController {
+    
+    @IBOutlet weak var startTimeBtn: UIButton!
+    @IBOutlet weak var endTimeBtn: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
+    override func getTableViewHeaderCellIdentifier() -> String {
+        return "usageBandwidthHeaderCellIdentifier"
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func getTableViewCellIdentifier() -> String {
+        return "usageBandwidthCellIdentifier"
     }
-    */
-
+    
+    override func updateTableView(startTime: NSDate, endTime: NSDate) {
+        AppContext.sdk?.getUsageService().bandwidth({ (usages) -> Void in
+            self.usages = usages
+            }, onFail: AppUtil.onFail, field: .Day, startAt: startTime, endAt: endTime)
+    }
+    
+    override func getStartTimeBtn() -> UIButton {
+        return startTimeBtn
+    }
+    
+    override func getEndTimeBtn() -> UIButton {
+        return endTimeBtn
+    }
+    
+    override func getTableView() -> UITableView {
+        return tableView
+    }
+    
+    @IBAction func startTimeBtnClick(sender: UIButton) {
+        updateStartTime()
+    }
+    
+    @IBAction func onEndTimeBtnClick(sender: UIButton) {
+        updateEndTime()
+    }
 }

@@ -13,9 +13,7 @@ class LoginViewController : UIViewController {
     
     @IBOutlet weak var accessSecretField: UITextField!
     @IBOutlet weak var accessKeyField: UITextField!
-
     @IBOutlet weak var warnMsg: UILabel!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,42 +23,32 @@ class LoginViewController : UIViewController {
     }
     
     @IBAction func loginClick(sender: UIButton) {
-        println("click login btn")
-        valid()
-    }
-    
-    func valid() {
         
         let ovp = "http://video.pispower.com/"
         let accessKey = accessKeyField.text
         let accessSecret = accessSecretField.text
         
+        valid(ovp, accessKey: accessKey, accessSecret: accessSecret) { (sdk : VideoSDK) in
+            AppContext.sdk = sdk
+            self.toMainCavas()
+        }
+    }
+    
+    func valid(ovp : String, accessKey : String, accessSecret : String, onSuccess : (sdk : VideoSDK) -> Void) {
+        
         let sdk = VideoSDK(host: ovp, accessKey: accessKey, accessSecret: accessSecret)
         
-    
-        
-        //valid accesskey and secret is ok
-        //for
+        //valid accesskey and secret field
         sdk.getCatalogService().list({ (catalogs) -> Void in
-            
-            AppContext.sdk = sdk
-            
-            //go to main cavas
-            self.toMainCavas()
+            onSuccess(sdk: sdk)
         }, onFail: onFail)
     }
     
     func toMainCavas() {
-        println("Go to Main Cavas")
-  
         self.performSegueWithIdentifier("loginSegue", sender: self)
     }
     
     func onFail(code : Int?, msg : String) {
-        println("login fail for \(msg)")
-        
         warnMsg.text = "error occur for \(msg)"
     }
 }
-
-

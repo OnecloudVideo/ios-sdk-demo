@@ -32,9 +32,9 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
     
     var uploadDelegate : UploadDelegate?
     var multipartDelegate : MultipartDelagate?
-    
+
     var editingVideo : Video?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,11 +54,39 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
         multipartDelegate!.catalog = catalog
     
         loadVideo()
+        
+        toolbarItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil),
+            createToolbarButtonItem("upload", lable: "普通上传", selector: "upload:"),
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FixedSpace, target: self, action: nil),
+            createToolbarButtonItem("mutipart_upload", lable: "断点续传", selector: "multipartUpload:"),
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)]
+        
 //        
 //        navigationItem.rightBarButtonItems = [
 //                UIBarButtonItem(image: UIImage(named: "multipart"), style: UIBarButtonItemStyle.Plain, target: self, action: "multipartUpload:"),
 //                UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "upload:"),
 //        ]
+    }
+    
+    func createToolbarButtonItem(imageName : String, lable : String, selector : Selector) -> UIBarButtonItem {
+        
+        var view = UIButton(frame: CGRectMake(0, 0, 100, 50))
+        var img = UIImageView(image: UIImage(named: imageName))
+        img.frame.origin.x = 40
+        img.frame.origin.y = 7
+        
+        view.addSubview(img)
+        var lbl = UILabel(frame: CGRectMake(0, 25, 100, 20))
+        lbl.text = lable
+        lbl.textColor = UIColor.blackColor()
+        
+        lbl.textAlignment = NSTextAlignment.Center
+        lbl.font = lbl.font.fontWithSize(15.0)
+        view.addSubview(lbl)
+        
+        view.addTarget(self, action: selector, forControlEvents: UIControlEvents.TouchUpInside)
+
+        return UIBarButtonItem(customView: view)
     }
     
     @IBAction func onUploadBtnClick(sender: UIBarButtonItem) {
@@ -317,7 +345,7 @@ class UploadDelegate : UIView, UIImagePickerControllerDelegate, UINavigationCont
             }, onFail: {(code : Int?, msg : String) -> () in
                 self.removeNotUploadingVideo()
                 AppUtil.onFail(code, msg: msg)
-            }, filePath: path, catalogId: catalog.id, name: "IMG.mov", description: "upload from swift"))!
+            }, filePath: path, catalogId: catalog.id, name: path.lastPathComponent, description: "upload from swift"))!
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
