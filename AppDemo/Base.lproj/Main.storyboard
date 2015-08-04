@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -41,7 +41,7 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lrcxgqhyl96psm" borderStyle="line" placeholder="Access Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tt4-cp-TC3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Access Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tt4-cp-TC3">
                                 <rect key="frame" x="16" y="341" width="568" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="45" id="XYD-7X-Rh3"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="62e3ac0f3d6bf07fe36392ad68800fdb" borderStyle="line" placeholder="Access Sercret" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuv-c2-u37">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Access Sercret" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vuv-c2-u37">
                                 <rect key="frame" x="16" y="403" width="568" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ef6-5o-rmc"/>
