@@ -135,7 +135,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGG-vs-c1M">
                                 <rect key="frame" x="270" y="532" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="YK6-vm-eh6"/>
+                                    <constraint firstAttribute="height" constant="60" id="PEM-aA-4Z8"/>
+                                    <constraint firstAttribute="width" constant="60" id="cWF-u1-RMc"/>
                                 </constraints>
                                 <state key="normal" image="logout">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,9 +146,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ds5-ef-dS7">
-                                <rect key="frame" x="30" y="117" width="71" height="59"/>
+                                <rect key="frame" x="16" y="124" width="60" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="fXQ-lj-7Z9"/>
+                                    <constraint firstAttribute="height" constant="50" id="5C4-p6-b5N"/>
+                                    <constraint firstAttribute="width" constant="60" id="TYX-WM-GHU"/>
                                 </constraints>
                                 <state key="normal" title=" " backgroundImage="file_manage">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,13 +159,47 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数据统计" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v62-ph-o2F">
-                                <rect key="frame" x="134" y="340" width="68" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="94" y="301" width="196" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="1f6-XB-d6n"/>
+                                    <constraint firstAttribute="width" constant="196" id="Xxj-tj-7rz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bek-gS-yOf">
-                                <rect key="frame" x="30" y="321" width="71" height="59"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频文件管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TU-Ab-rf6">
+                                <rect key="frame" x="94" y="135" width="141" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="141" id="XJe-Vu-EWX"/>
+                                    <constraint firstAttribute="height" constant="21" id="Yv4-Uy-CFb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5499999999999996" contentMode="scaleToFill" text="亦云视频支持通过API接口方式获取视(音)频目录、文件个数、执行新建、删除文件夹等操作。同时支持普通上传、视频断点续传、获取/编辑视频基本信息、删除视频、播放视频等功能。" translatesAutoresizingMaskIntoConstraints="NO" id="8T0-Xq-sU2">
+                                <rect key="frame" x="90" y="164" width="490" height="84"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2O3-a7-kKh">
+                                <rect key="frame" x="84" y="326" width="490" height="191"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">亦云视频提供播放统计、流量统计、存储统计、视频统计API接口。
+●播放统计：统计视频播放量、访问IP数、IP播放排行。
+●流量统计：统计每日使用流量，及访问IP流量排行。
+●存储统计：统计每日使用存储。
+●视频统计：统计视频数量，新增视频数量   </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bek-gS-yOf">
+                                <rect key="frame" x="16" y="301" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yFM-ln-95a"/>
+                                </constraints>
                                 <state key="normal" title=" " backgroundImage="usage">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -171,34 +207,51 @@
                                     <segue destination="7vJ-4e-O1L" kind="show" id="Saf-yN-EPq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="视频文件管理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6TU-Ab-rf6">
-                                <rect key="frame" x="134" y="136" width="102" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="bek-gS-yOf" firstAttribute="baseline" secondItem="v62-ph-o2F" secondAttribute="firstBaseline" id="2el-cW-Fam"/>
-                            <constraint firstItem="MGG-vs-c1M" firstAttribute="centerX" secondItem="D3h-lV-PT8" secondAttribute="centerX" id="5Qd-aO-kB7"/>
-                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="baseline" secondItem="ds5-ef-dS7" secondAttribute="firstBaseline" id="92a-Q6-676"/>
-                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="leading" secondItem="ds5-ef-dS7" secondAttribute="trailing" constant="33" id="Ayb-7Z-ZNf"/>
-                            <constraint firstItem="bek-gS-yOf" firstAttribute="centerY" secondItem="v62-ph-o2F" secondAttribute="centerY" id="BMB-4T-jW1"/>
-                            <constraint firstItem="v62-ph-o2F" firstAttribute="baseline" secondItem="bek-gS-yOf" secondAttribute="firstBaseline" id="DAk-Yu-BCb"/>
-                            <constraint firstItem="ds5-ef-dS7" firstAttribute="leading" secondItem="D3h-lV-PT8" secondAttribute="leadingMargin" constant="14" id="DHA-DX-oOv"/>
-                            <constraint firstItem="ds5-ef-dS7" firstAttribute="baseline" secondItem="6TU-Ab-rf6" secondAttribute="firstBaseline" id="JqT-Bx-Kez"/>
-                            <constraint firstItem="bek-gS-yOf" firstAttribute="leading" secondItem="ds5-ef-dS7" secondAttribute="leading" id="UHz-dT-nbg"/>
-                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="top" secondItem="NrE-RR-oWM" secondAttribute="bottom" constant="72" id="Wik-pM-tVf"/>
-                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="v62-ph-o2F" secondAttribute="bottom" constant="239" id="Yq7-oZ-aTu"/>
-                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="leading" secondItem="v62-ph-o2F" secondAttribute="leading" id="bf2-DK-sT2"/>
-                            <constraint firstItem="ds5-ef-dS7" firstAttribute="top" secondItem="NrE-RR-oWM" secondAttribute="bottom" constant="53" id="dm0-E0-rUA"/>
-                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="MGG-vs-c1M" secondAttribute="bottom" constant="8" symbolic="YES" id="euR-Q2-9md"/>
-                            <constraint firstItem="ds5-ef-dS7" firstAttribute="centerY" secondItem="6TU-Ab-rf6" secondAttribute="centerY" id="fSN-OB-YHE"/>
-                            <constraint firstItem="bek-gS-yOf" firstAttribute="trailing" secondItem="ds5-ef-dS7" secondAttribute="trailing" id="fXz-e9-aZm"/>
-                            <constraint firstItem="MGG-vs-c1M" firstAttribute="top" secondItem="NrE-RR-oWM" secondAttribute="bottom" constant="468" id="pdJ-Nk-Poq"/>
-                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="bek-gS-yOf" secondAttribute="bottom" constant="220" id="zcH-eW-H1o"/>
+                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="top" secondItem="NrE-RR-oWM" secondAttribute="bottom" constant="71" id="3j4-9a-Xnd"/>
+                            <constraint firstItem="bek-gS-yOf" firstAttribute="trailing" secondItem="ds5-ef-dS7" secondAttribute="trailing" id="9tn-Uo-DsZ"/>
+                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="bek-gS-yOf" secondAttribute="bottom" constant="264" id="Ae8-hw-gl6"/>
+                            <constraint firstItem="bek-gS-yOf" firstAttribute="leading" secondItem="ds5-ef-dS7" secondAttribute="leading" id="DMf-qI-d5Z"/>
+                            <constraint firstItem="v62-ph-o2F" firstAttribute="top" secondItem="bek-gS-yOf" secondAttribute="top" id="FYa-Ya-KNC"/>
+                            <constraint firstItem="MGG-vs-c1M" firstAttribute="top" secondItem="2O3-a7-kKh" secondAttribute="bottom" constant="15" id="GcO-qJ-P9x"/>
+                            <constraint firstItem="MGG-vs-c1M" firstAttribute="centerX" secondItem="D3h-lV-PT8" secondAttribute="centerX" id="HVf-Ic-UTR"/>
+                            <constraint firstItem="ds5-ef-dS7" firstAttribute="leading" secondItem="bek-gS-yOf" secondAttribute="leading" id="HaQ-Sl-QCy"/>
+                            <constraint firstItem="8T0-Xq-sU2" firstAttribute="leading" secondItem="ds5-ef-dS7" secondAttribute="trailing" constant="14" id="IWT-Us-XbF"/>
+                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="MGG-vs-c1M" secondAttribute="bottom" constant="8" symbolic="YES" id="K0X-xc-4mD"/>
+                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="bek-gS-yOf" secondAttribute="bottom" constant="249" id="Okv-OF-scD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2O3-a7-kKh" secondAttribute="trailing" constant="10" id="QHJ-F9-KtS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8T0-Xq-sU2" secondAttribute="trailing" constant="4" id="QqU-gm-fgC"/>
+                            <constraint firstItem="bek-gS-yOf" firstAttribute="top" secondItem="v62-ph-o2F" secondAttribute="top" id="T3G-bn-qvf"/>
+                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="bek-gS-yOf" secondAttribute="bottom" constant="264" id="awY-KE-34I"/>
+                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="leading" secondItem="ds5-ef-dS7" secondAttribute="trailing" constant="18" id="baZ-kS-5FM"/>
+                            <constraint firstItem="ds5-ef-dS7" firstAttribute="top" secondItem="NrE-RR-oWM" secondAttribute="bottom" constant="60" id="d2N-dc-yE2"/>
+                            <constraint firstItem="6TU-Ab-rf6" firstAttribute="leading" secondItem="v62-ph-o2F" secondAttribute="leading" id="ewK-Wz-jx4"/>
+                            <constraint firstItem="bek-gS-yOf" firstAttribute="leading" secondItem="D3h-lV-PT8" secondAttribute="leadingMargin" id="hBu-JQ-MfZ"/>
+                            <constraint firstItem="v62-ph-o2F" firstAttribute="top" secondItem="8T0-Xq-sU2" secondAttribute="bottom" constant="53" id="m8p-hX-pBQ"/>
+                            <constraint firstItem="mfM-lI-mtR" firstAttribute="top" secondItem="ds5-ef-dS7" secondAttribute="bottom" constant="425" id="nHF-JQ-js1"/>
+                            <constraint firstItem="bek-gS-yOf" firstAttribute="leading" secondItem="D3h-lV-PT8" secondAttribute="leadingMargin" id="p4d-qM-DAk"/>
+                            <constraint firstItem="MGG-vs-c1M" firstAttribute="top" secondItem="2O3-a7-kKh" secondAttribute="bottom" constant="43" id="th3-DB-86H"/>
+                            <constraint firstAttribute="bottom" secondItem="2O3-a7-kKh" secondAttribute="bottom" constant="111" id="uxk-Uq-SAc"/>
+                            <constraint firstItem="8T0-Xq-sU2" firstAttribute="top" secondItem="6TU-Ab-rf6" secondAttribute="bottom" constant="8" symbolic="YES" id="wMs-Qf-wxe"/>
+                            <constraint firstItem="ds5-ef-dS7" firstAttribute="trailing" secondItem="bek-gS-yOf" secondAttribute="trailing" id="yGe-oP-coI"/>
+                            <constraint firstItem="2O3-a7-kKh" firstAttribute="leading" secondItem="bek-gS-yOf" secondAttribute="trailing" constant="8" symbolic="YES" id="zAt-wn-aBA"/>
+                            <constraint firstItem="2O3-a7-kKh" firstAttribute="top" secondItem="8T0-Xq-sU2" secondAttribute="bottom" constant="78" id="zMS-ho-Yfg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HaQ-Sl-QCy"/>
+                                <exclude reference="yGe-oP-coI"/>
+                                <exclude reference="T3G-bn-qvf"/>
+                                <exclude reference="hBu-JQ-MfZ"/>
+                                <exclude reference="uxk-Uq-SAc"/>
+                                <exclude reference="th3-DB-86H"/>
+                                <exclude reference="Ae8-hw-gl6"/>
+                                <exclude reference="awY-KE-34I"/>
+                                <exclude reference="nHF-JQ-js1"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="功能介绍" id="vlz-VK-jYq"/>
                 </viewController>
