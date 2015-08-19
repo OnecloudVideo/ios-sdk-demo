@@ -782,6 +782,9 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="catalog" translatesAutoresizingMaskIntoConstraints="NO" id="d3M-XW-7Vr">
                                             <rect key="frame" x="21" y="16" width="53" height="46"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="53" id="tsH-h8-VNz"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="catalogName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ng5-LO-0Zl">
                                             <rect key="frame" x="93" y="24" width="448" height="26"/>
@@ -804,14 +807,14 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Ng5-LO-0Zl" firstAttribute="baseline" secondItem="Bes-eX-w1B" secondAttribute="baseline" id="2nz-Bz-7t4"/>
-                                        <constraint firstItem="Ng5-LO-0Zl" firstAttribute="leading" secondItem="d3M-XW-7Vr" secondAttribute="trailing" constant="19" id="BjH-9w-ykd"/>
+                                        <constraint firstItem="Ng5-LO-0Zl" firstAttribute="leading" secondItem="d3M-XW-7Vr" secondAttribute="trailing" constant="19" id="77d-LS-3Cq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Bes-eX-w1B" secondAttribute="trailing" constant="-2" id="C3j-6R-svA"/>
-                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="centerY" secondItem="qRn-zj-9ts" secondAttribute="centerY" id="MvX-0g-Qhu"/>
                                         <constraint firstItem="Ng5-LO-0Zl" firstAttribute="top" secondItem="qRn-zj-9ts" secondAttribute="topMargin" constant="16" id="NTK-X9-k03"/>
-                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="top" secondItem="qRn-zj-9ts" secondAttribute="topMargin" constant="8" id="lyz-sc-Wmc"/>
-                                        <constraint firstItem="Bes-eX-w1B" firstAttribute="centerY" secondItem="d3M-XW-7Vr" secondAttribute="centerY" id="oIp-Th-bAb"/>
-                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="leading" secondItem="qRn-zj-9ts" secondAttribute="leadingMargin" constant="6" id="yXR-nE-xnn"/>
+                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="top" secondItem="qRn-zj-9ts" secondAttribute="topMargin" constant="8" id="iW0-rw-rrr"/>
+                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="leading" secondItem="qRn-zj-9ts" secondAttribute="leadingMargin" constant="6" id="wJ8-Sd-ZjR"/>
+                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="centerY" secondItem="qRn-zj-9ts" secondAttribute="centerY" id="y4y-GB-piQ"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Ng5-LO-0Zl" secondAttribute="trailing" constant="44" id="zUt-lr-8gO"/>
+                                        <constraint firstItem="d3M-XW-7Vr" firstAttribute="centerY" secondItem="Bes-eX-w1B" secondAttribute="centerY" id="zXN-fl-C1d"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
