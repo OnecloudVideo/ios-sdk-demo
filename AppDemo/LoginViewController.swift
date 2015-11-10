@@ -24,7 +24,7 @@ class LoginViewController : UIViewController {
     
     @IBAction func loginClick(sender: UIButton) {
         
-        let ovp = "http://video.pispower.com/"
+        let ovp = "http://video.cloudak47.com/"
         let accessKey = accessKeyField.text
         let accessSecret = accessSecretField.text
         
