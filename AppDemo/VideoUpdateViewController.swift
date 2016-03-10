@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideoSDK
 
 class VideoUpdateViewController: UIViewController, UITextFieldDelegate {
 
@@ -22,7 +23,7 @@ class VideoUpdateViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onSaveBtnClick(sender: UIButton) {
-        println("click update video save btn")
+        print("click update video save btn")
         
         let updatedName = nameTextField.text
         let updatedDesc = descTextArea.text
@@ -32,24 +33,31 @@ class VideoUpdateViewController: UIViewController, UITextFieldDelegate {
             self.video?.name = updatedName
             self.video?.description = updatedDesc
             
-            AppUtil.alert("编辑成功", msg: "")
+            AppUtil.createAlert(self)(title: "编辑成功", msg: "")
             
             self.back()
             
-        }, onFail: AppUtil.onFail, id: video!.id!, name: updatedName, description: updatedDesc)
+        }, onFail: AppUtil.createOnFail(self), id: video!.id!, name: updatedName!, description: updatedDesc)
 
     }
     
+    @IBAction func nameTextDidEndOnExit(sender: UITextField) {
+        
+        descTextArea.becomeFirstResponder()
+        
+    }
     
     @IBAction func onCancelBtnClick(sender: UIButton) {
-        println("click update video cancel btn")
+        print("click update video cancel btn")
         back()
         
     }
     
     func back() {
-        parentViewController?.navigationController?.popViewControllerAnimated(true)
-
+//        parentViewController?.navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
+        
+        print("call popview")
     }
     
     override func viewDidLoad() {
@@ -63,16 +71,13 @@ class VideoUpdateViewController: UIViewController, UITextFieldDelegate {
         descTextArea.layer.cornerRadius = 0.5
         
         AppContext.sdk?.getVideoService().get({ (v) -> Void in
-            
-            
-            
-            self.nameTextField.text = v.name!.stringByDeletingPathExtension
+            self.nameTextField.text =  NSURL(fileURLWithPath: v.name!).URLByDeletingPathExtension?.lastPathComponent
             self.descTextArea.text = v.description
             
             self.video?.name = v.name
             self.video?.description = v.description
             
-        }, onFail: AppUtil.onFail, id: video!.id!)
+        }, onFail: AppUtil.createOnFail(self), id: video!.id!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,6 +86,9 @@ class VideoUpdateViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func backgroundTouchDown(sender: AnyObject) {
+        self.view.endEditing(true)
+    }
     
     /*
     // MARK: - Navigation

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideoSDK
 
 class UsageBaseViewCell: UITableViewCell {
 

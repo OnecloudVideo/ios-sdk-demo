@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideoSDK
 
 class UsageBaseViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
 
@@ -24,7 +25,7 @@ class UsageBaseViewController: UIViewController , UITableViewDelegate, UITableVi
             }
             
             if startTime?.timeIntervalSinceNow > endTime?.timeIntervalSinceNow {
-                AppUtil.alert("", msg: "不允许开始时间晚于结束时间")
+                AppUtil.createAlert(self)(title: "", msg: "不允许开始时间晚于结束时间")
                 startTime = oldValue
                 return
             }
@@ -45,7 +46,7 @@ class UsageBaseViewController: UIViewController , UITableViewDelegate, UITableVi
             }
             
             if startTime?.timeIntervalSinceNow > endTime?.timeIntervalSinceNow {
-                AppUtil.alert("", msg: "不允许开始时间晚于结束时间")
+                AppUtil.createAlert(self)(title: "", msg: "不允许开始时间晚于结束时间")
                 endTime = oldValue
                 return
             }

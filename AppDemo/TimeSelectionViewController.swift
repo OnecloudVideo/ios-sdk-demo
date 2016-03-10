@@ -12,7 +12,7 @@ class TimeSelectionViewController: UIViewController {
 
     var date : NSDate? {
         didSet {
-            println("date has been change")
+            print("date has been change")
         }
     }
     
@@ -33,11 +33,11 @@ class TimeSelectionViewController: UIViewController {
     
 
     @IBAction func onValueChanged(sender: UIDatePicker) {
-        println("select \(sender.date)")
+        print("select \(sender.date)")
         
         date?.timeIntervalSinceDate(sender.date)
         
-        println("\(date == sender.date)")
+        print("\(date == sender.date)")
     }
 
     override func viewDidDisappear(animated: Bool) {

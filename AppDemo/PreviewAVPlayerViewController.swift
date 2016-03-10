@@ -9,6 +9,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import VideoSDK
 
 class PreviewAVPlayerViewController: AVPlayerViewController {
     
@@ -20,11 +21,11 @@ class PreviewAVPlayerViewController: AVPlayerViewController {
             if let tvs = video?.transcodedVideos {
                 if let m3u8 = tvs[0].m3u8 {
                     
-                    println(" m3u8 is \(m3u8)")
+                    print(" m3u8 is \(m3u8)")
                     
-                    var steamingURL:NSURL = NSURL(string: m3u8)!
+                    let steamingURL:NSURL = NSURL(string: m3u8)!
                     player = AVPlayer(URL: steamingURL)
-                    player.play()
+                    player!.play()
                 }
             }
         }
@@ -33,7 +34,7 @@ class PreviewAVPlayerViewController: AVPlayerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println("preview video \(video)")
+        print("preview video \(video)")
         
         videoService = AppContext.sdk?.getVideoService()
         
@@ -45,6 +46,6 @@ class PreviewAVPlayerViewController: AVPlayerViewController {
         videoService?.get({ (video) -> Void in
             self.video  = video
             
-        }, onFail: AppUtil.onFail, id: video!.id!)
+        }, onFail: AppUtil.createOnFail(self), id: video!.id!)
     }
 }

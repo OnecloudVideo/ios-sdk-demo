@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideoSDK
 
 class UsageVideoAddedViewCell: UsageBaseViewCell {
     @IBOutlet weak var timeLbl: UILabel!

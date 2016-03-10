@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import VideoSDK
 
 public class AppContext {
     static var sdk : VideoSDK?

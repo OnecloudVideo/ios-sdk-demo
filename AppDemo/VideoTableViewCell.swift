@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideoSDK
 
 class VideoTableViewCell: UITableViewCell, PropertyChangeDelegate {
 
@@ -61,7 +62,7 @@ class VideoTableViewCell: UITableViewCell, PropertyChangeDelegate {
         AppUtil.runOnMainThread { () -> () in
             AppContext.sdk?.getMultipartService().upload({ (video) -> Void in
                 
-                }, onFail: AppUtil.onFail, multipartVideo: self.video as! MultipartVideo)
+                }, onFail: AppUtil.createOnFail(self.controller!), multipartVideo: self.video as! MultipartVideo)
         }
     }
     
@@ -79,7 +80,7 @@ class VideoTableViewCell: UITableViewCell, PropertyChangeDelegate {
             update()
             
             AppUtil.runOnMainThread({ () -> () in
-                controller?.tableView.reloadData()
+                self.controller?.tableView.reloadData()
             })
             
         } else {
@@ -102,7 +103,7 @@ class VideoTableViewCell: UITableViewCell, PropertyChangeDelegate {
                     self.poster.image = UIImage(named: "video")
                 }
                 
-                println(v.size)
+                print(v.size)
                 self.size.text = "\(v.size!)"
                 
                 self.status.text = v.status

@@ -20,8 +20,8 @@ class DatePickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        println(self.parentViewController)
-        println(self.parentViewController?.parentViewController)
+        print(self.parentViewController)
+        print(self.parentViewController?.parentViewController)
        
         // Do any additional setup after loading the view.
         self.navigationItem.leftBarButtonItems = [ UIBarButtonItem(image: UIImage(named: "arrow_right"), style: UIBarButtonItemStyle.Plain, target: self, action: "backTo:")

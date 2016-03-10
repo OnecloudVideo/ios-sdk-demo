@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import VideoSDK
 
 class CatalogTableViewController: UITableViewController {
 
@@ -22,12 +22,21 @@ class CatalogTableViewController: UITableViewController {
         loadCatalogs()
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addAction:")
-     
+        
+//        let backBtn = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: "backToPrevious:")
+//        navigationItem.leftBarButtonItem = backBtn
+
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
 //         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func backToPrevious() {
+        print("back to previous view")
+        
     }
     
     func loadCatalogs() {
@@ -57,12 +66,12 @@ class CatalogTableViewController: UITableViewController {
                     
                 }, onFail: { (code, msg) -> Void in
                     
-                    AppUtil.onFail(code, msg: msg)
+                    AppUtil.createOnFail(self)(code: code, msg: msg)
                     doneQuery++
                     
                 }, id: eachCatalog.id)
             }
-        }, onFail: AppUtil.onFail)
+        }, onFail: AppUtil.createOnFail(self))
     }
     
     func addAction(barButtonItem : UIBarButtonItem) {
@@ -74,10 +83,10 @@ class CatalogTableViewController: UITableViewController {
         }
 
         let okAction = UIAlertAction(title: "添加", style: UIAlertActionStyle.Default) {(action : UIAlertAction!) -> Void in
-            println(action)
-            var catalogName = (alert.textFields?.first! as! UITextField).text
+            print(action)
+            let catalogName = (alert.textFields!.first! ).text
             
-            println("try to add new catalog name is \(catalogName)")
+            print("try to add new catalog name is \(catalogName)")
             
             self.catalogService?.create({ (catalog) -> Void in
                 
@@ -86,7 +95,7 @@ class CatalogTableViewController: UITableViewController {
                 let indexPath = NSIndexPath(forRow: 0, inSection: 0)
                 self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
                 
-            }, onFail: AppUtil.onFail, name: catalogName)
+            }, onFail: AppUtil.createOnFail(self), name: catalogName!)
         }
     
         let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Destructive, handler: nil)
@@ -122,7 +131,7 @@ class CatalogTableViewController: UITableViewController {
         
         let indentifier = "catalogCellIdentifier"
         
-        println(" index is \(indexPath)")
+        print(" index is \(indexPath)")
         let cell = tableView.dequeueReusableCellWithIdentifier(indentifier, forIndexPath: indexPath) as! CatalogTableViewCell
 
         let catalog = catalogs[indexPath.row]
@@ -141,18 +150,18 @@ class CatalogTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let catalog = catalogs[indexPath.row]
-        println("edit catalog \(catalog.id)")
+        print("edit catalog \(catalog.id)")
         
         func runOnDeleteSucess(catalog: Catalog) {
            
-                println("delete catalog success")
+                print("delete catalog success")
                 self.catalogs.removeAtIndex(indexPath.row)
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
            
         }
         
         if editingStyle == .Delete {
-            catalogService?.delete(runOnDeleteSucess, onFail: AppUtil.onFail, id: catalog.id)
+            catalogService?.delete(runOnDeleteSucess, onFail: AppUtil.createOnFail(self), id: catalog.id)
             
 
 
@@ -161,7 +170,7 @@ class CatalogTableViewController: UITableViewController {
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             
-            println("aaaa")
+            print("aaaa")
         }    
     }
 
@@ -188,13 +197,13 @@ class CatalogTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        println(segue.identifier)
+        print(segue.identifier)
         if "showVideoDetailIdentifier" == segue.identifier {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
                 let catalog = catalogs[indexPath.row]
                 
-                
-                ((segue.destinationViewController as! UINavigationController).topViewController as! VideoTableViewController).catalog = catalog
+                (segue.destinationViewController as! VideoTableViewController).catalog = catalog
+//                ((segue.destinationViewController as! UINavigationController).topViewController as! VideoTableViewController).catalog = catalog
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 import MobileCoreServices
-
+import VideoSDK
 
 
 class VideoTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -61,6 +61,9 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
             createToolbarButtonItem("mutipart_upload", lable: "断点续传", selector: "multipartUpload:"),
             UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)]
         
+        
+        self.navigationController?.setToolbarHidden(false, animated: true)
+        
 //        
 //        navigationItem.rightBarButtonItems = [
 //                UIBarButtonItem(image: UIImage(named: "multipart"), style: UIBarButtonItemStyle.Plain, target: self, action: "multipartUpload:"),
@@ -70,13 +73,13 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
     
     func createToolbarButtonItem(imageName : String, lable : String, selector : Selector) -> UIBarButtonItem {
         
-        var view = UIButton(frame: CGRectMake(0, 0, 100, 50))
-        var img = UIImageView(image: UIImage(named: imageName))
+        let view = UIButton(frame: CGRectMake(0, 0, 100, 50))
+        let img = UIImageView(image: UIImage(named: imageName))
         img.frame.origin.x = 40
         img.frame.origin.y = 7
         
         view.addSubview(img)
-        var lbl = UILabel(frame: CGRectMake(0, 25, 100, 20))
+        let lbl = UILabel(frame: CGRectMake(0, 25, 100, 20))
         lbl.text = lable
         lbl.textColor = UIColor.blackColor()
         
@@ -119,7 +122,7 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
-        imagePicker.mediaTypes = [ kUTTypeMovie, kUTTypeAudio ]
+        imagePicker.mediaTypes = [ kUTTypeMovie as String, kUTTypeAudio as String ]
 
         return imagePicker
     }
@@ -133,7 +136,7 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
             self.videos += videos
             
             self.tableView.reloadData()
-        }, onFail: AppUtil.onFail, catalogId: catalog!.id)
+        }, onFail: AppUtil.createOnFail(self), catalogId: catalog!.id)
     }
 
     func addVideo(v : Video, index : Int) {
@@ -165,7 +168,7 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(VIDEO_TABLE_VIEW_CELL_INDENTIFIER, forIndexPath: indexPath) as! VideoTableViewCell
 
-        var v = videos[indexPath.row]
+        let v = videos[indexPath.row]
         
         cell.video = v
         cell.controller = self
@@ -182,12 +185,13 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
     }
 
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let row = indexPath.row
         let video = videos[row]
         
-        var updateAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "编辑") { (action, indexPath) -> Void in
+        let updateAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "编辑") { (action, indexPath) -> Void in
             
             self.editingVideo = video
             self.performSegueWithIdentifier(self.SHOW_VIDEO_UPDATE_VIEW_CONTROLLER_SEGUE_IDENTIFIER, sender: self)
@@ -200,14 +204,14 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
 //        
 //        codeAction.backgroundColor = UIColor.brownColor()
 
-        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "删除") { (action, indexPath) -> Void in
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "删除") { (action, indexPath) -> Void in
             let row = indexPath.row
             let video = self.videos[row]
             
             self.videoService?.delete({ (msg) -> Void in
                 self.videos.removeAtIndex(indexPath.row)
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }, onFail: AppUtil.onFail, id: video.id!)
+            }, onFail: AppUtil.createOnFail(self), id: video.id!)
 
         }
         deleteAction.backgroundColor = UIColor.redColor()
@@ -261,28 +265,33 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        println("go to segue \(segue.identifier)")
+        print("go to segue \(segue.identifier)")
         
         
         switch segue.identifier! {
         case PREVIEW_SEGUE_INDENTIFIER :
 
-            let row : Int! = tableView.indexPathForSelectedRow()?.row
+            let row : Int! = tableView.indexPathForSelectedRow?.row
             let video = videos[row]
 
-            ((segue.destinationViewController as! UINavigationController).topViewController as! PreviewAVPlayerViewController).video = video
+             (segue.destinationViewController as! PreviewAVPlayerViewController).video = video
+            
+//            ((segue.destinationViewController as! UINavigationController).topViewController as! PreviewAVPlayerViewController).video = video
         case SHOW_VIDEO_UPDATE_VIEW_CONTROLLER_SEGUE_IDENTIFIER:
             
-            ((segue.destinationViewController as! UINavigationController).topViewController as! VideoUpdateViewController).video = editingVideo
+//            ((segue.destinationViewController as! UINavigationController).topViewController as! VideoUpdateViewController).video = editingVideo
+            
+            (segue.destinationViewController as! VideoUpdateViewController).video = editingVideo
+
         default:
-            println("no need prepare for segue \(segue.identifier)")
+            print("no need prepare for segue \(segue.identifier)")
         }
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
         if PREVIEW_SEGUE_INDENTIFIER == identifier {
         
-            let row = tableView.indexPathForSelectedRow()?.row
+            let row = tableView.indexPathForSelectedRow?.row
             let video = videos[row!]
             
             if video.isAuditSuccess() {
@@ -290,11 +299,11 @@ class VideoTableViewController: UITableViewController, UIImagePickerControllerDe
             } else if video.isUploading() {
                 return false
             } else {
-                AppUtil.alert("预览失败", msg: "视频状态为 \(video.status!)")
+                AppUtil.createAlert(self)(title: "预览失败", msg: "视频状态为 \(video.status!)")
                 return false
             }
         } else {
-            return super.shouldPerformSegueWithIdentifier(identifier, sender: sender)
+            return super.shouldPerformSegueWithIdentifier(identifier!, sender: sender)
         }
     }
 }
@@ -310,8 +319,8 @@ class UploadDelegate : UIView, UIImagePickerControllerDelegate, UINavigationCont
             if let c = catalog {
                 
                 if nil == UploadDelegate.uploadingVideoDict.indexForKey(c.id) {
-                    println("init uploading video array for catalog id \(c.id)")
-                    var videos = [Video]()
+                    print("init uploading video array for catalog id \(c.id)")
+                    let videos = [Video]()
                     UploadDelegate.uploadingVideoDict[c.id] = videos
                 }
                 
@@ -319,16 +328,19 @@ class UploadDelegate : UIView, UIImagePickerControllerDelegate, UINavigationCont
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        var path : NSURL = info[UIImagePickerControllerMediaURL] as! NSURL
-        println("user has select \(path.path)")
-        var file = LocalFile(contentsOfFile: path.path!)
+        let path : NSURL = info[UIImagePickerControllerMediaURL] as! NSURL
+        print("user has select \(path.path)")
+        let file = LocalFile(contentsOfFile: path.path!)
+        print("file is \(file)")
         
-        var catalog = videoController?.catalog
+        let catalog = videoController?.catalog
         let catalogId = catalog!.id
+        print("catalogId is \(catalogId)")
         
         let index = getUploadingVideos().count
+        print("index is \(index)")
         
         // upload
         let video = getVideo(path.path!, catalog : catalog!)
@@ -340,12 +352,15 @@ class UploadDelegate : UIView, UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func getVideo(path : String, catalog : Catalog) -> Video {
+        
+        let name = NSURL(fileURLWithPath: path).lastPathComponent
+        
         return (videoController?.videoService?.upload({ (video : Video) -> Void in
             self.removeNotUploadingVideo()
             }, onFail: {(code : Int?, msg : String) -> () in
                 self.removeNotUploadingVideo()
-                AppUtil.onFail(code, msg: msg)
-            }, filePath: path, catalogId: catalog.id, name: path.lastPathComponent, description: "upload from swift"))!
+                AppUtil.createOnFail(self.videoController!)(code: code, msg: msg)
+            }, filePath: path, catalogId: catalog.id, name: name!, description: "upload from swift"))!
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -359,7 +374,7 @@ class UploadDelegate : UIView, UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func removeNotUploadingVideo() {
-        var existVideos = getUploadingVideos()
+        let existVideos = getUploadingVideos()
         var videos = [Video]()
         
         for ev in existVideos {
@@ -381,12 +396,15 @@ class UploadDelegate : UIView, UIImagePickerControllerDelegate, UINavigationCont
 }
 
 class MultipartDelagate : UploadDelegate {
+    
     override func getVideo(path: String, catalog: Catalog) -> Video {
+        
         return (videoController?.multipartService?.upload({ (video) -> Void in
             self.removeNotUploadingVideo()
         }, onFail: { (code, msg) -> Void in
             self.removeNotUploadingVideo()
-            AppUtil.onFail(code, msg: msg)
+            AppUtil.createOnFail(self.videoController!)(code: code, msg: msg)
         }, filePath: path, catalog: catalog))!
     }
+    
 }

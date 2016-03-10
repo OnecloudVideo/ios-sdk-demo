@@ -11,18 +11,42 @@ import UIKit
 
 class AppUtil {
     
-    static func onFail(code : Int?, msg : String) {
-        alert("错误提示", msg: "代码 ： \(code) \n 详情： \(msg)")
+//    static func onFail(code : Int?, msg : String) {
+//        alert("错误提示", msg: "代码 ： \(code) \n 详情： \(msg)")
+//    }
+//    
+//    static func alert(title : String, msg : String) {
+//        let alert = UIAlertView()
+//        
+//        alert.title = title
+//        alert.message = msg
+//        alert.addButtonWithTitle("确定")
+//        
+//        alert.show()
+//    }
+    
+    //ios 9.0 later
+    static func createOnFail(parent: UIViewController) -> (code : Int?, msg : String) -> Void {
+        return { (code : Int?, msg : String) in
+            createAlert(parent)(title: "错误提示", msg: "代码 ： \(code) \n 详情： \(msg)")
+        }
     }
     
-    static func alert(title : String, msg : String) {
-        let alert = UIAlertView()
+    //ios 9.0 later
+    static func createAlert(parent: UIViewController) -> (title: String, msg: String) -> Void {
         
-        alert.title = title
-        alert.message = msg
-        alert.addButtonWithTitle("确定")
+        func alert(title: String, msg: String) {
+            
+            let alertController = UIAlertController(title: title, message: msg, preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let okAction = UIAlertAction(title: "确定", style: UIAlertActionStyle.Default, handler: nil)
+            alertController.addAction(okAction)
+            
+            parent.presentViewController(alertController, animated: false){}
+            NSLog("popup alert window \(alertController)")
+        }
         
-        alert.show()
+        return alert
     }
     
     static func runOnMainThread(closure : () -> ()) {
@@ -38,12 +62,13 @@ class AppUtil {
     }
     
     static func getDateFormatter() -> NSDateFormatter {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy年MM月dd日"
         return dateFormatter
     }
     
-    private static func sizeSmallerThan(size : Int, bytes : Int) -> Bool {
+    private static func sizeSmallerThan(size : Int64, bytes : Int64) -> Bool {
+        
         return 0 == size / bytes
     }
     
@@ -53,19 +78,19 @@ class AppUtil {
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
         
-        if sizeSmallerThan(sizeInt, bytes: 1024) {
+        if sizeSmallerThan(Int64(sizeInt), bytes: 1024) {
             return "\(size % 1024)B"
         }
         
-        if sizeSmallerThan(sizeInt, bytes: 1024 * 1024) {
+        if sizeSmallerThan(Int64(sizeInt), bytes: 1024 * 1024) {
             return "\(formatter.stringFromNumber(Double(size) / 1024.0)!)KB"
         }
         
-        if sizeSmallerThan(sizeInt, bytes: 1024 * 1024 * 1024) {
+        if sizeSmallerThan(Int64(sizeInt), bytes: 1024 * 1024 * 1024) {
             return "\(formatter.stringFromNumber(Double(size) / 1024.0 / 1024.0)!)MB"
         }
         
-        if sizeSmallerThan(sizeInt, bytes: 1024 * 1024 * 1024 * 1024) {
+        if sizeSmallerThan(Int64(sizeInt), bytes: 1024 * 1024 * 1024 * 1024) {
             return "\(formatter.stringFromNumber(Double(size) / 1024.0 / 1024.0 / 1024)!)GB"
         }
         

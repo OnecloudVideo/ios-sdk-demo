@@ -38,7 +38,7 @@ class UsageVideoAddedViewController: UsageBaseViewController {
     override func updateTableView(startTime: NSDate, endTime: NSDate) {
         AppContext.sdk?.getUsageService().videoAdded({ (usages) -> Void in
             self.usages = usages
-            }, onFail: AppUtil.onFail, field: .Day, startAt: startTime, endAt: endTime)
+            }, onFail: AppUtil.createOnFail(self), field: .Day, startAt: startTime, endAt: endTime)
     }
     
     @IBAction func startTimeBtnClick(sender: UIButton) {

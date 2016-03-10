@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VideoSDK
 
 class UsageBandwidthViewCell: UsageBaseViewCell {
 
@@ -14,6 +15,7 @@ class UsageBandwidthViewCell: UsageBaseViewCell {
     @IBOutlet weak var bandwidthLbl: UILabel!
     
     override func updateUsage(usage: Usage<UInt>) {
+        
         timeLbl.text = AppUtil.stringFromDate(usage.startAt)
         bandwidthLbl.text = "\(AppUtil.stringFromSize(usage.usage))"
     }
